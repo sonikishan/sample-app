@@ -1,0 +1,28 @@
+<%= form_for @micropost do |f| %>
+  <%= render('shared/error_messages', :object => f.object) %>
+  <div class="field">
+    <%= f.text_area(:content) %><br/>
+    <span id="remaining_chars">
+      140 characters remaining.
+    </span>
+  </div>
+  <div class="actions">
+    <%= f.submit("Submit") %>
+  </div>
+<% end %>
+
+<script>
+  $('#micropost_content').bind("keydown keyup", function(e) {
+      var contentLength = $('#micropost_content').val().length;
+      var isBackspaceOrDelete = (e.keyCode === 8 || e.keyCode === 46 ? true : false)
+
+      if (contentLength > 140 && !isBackspaceOrDelete) {
+          e.preventDefault ? e.preventDefault() : e.returnValue = false;
+      }
+
+      var remainingChars = 140 - contentLength;
+
+      $('#remaining_chars').html(remainingChars + " characters remaining.");
+  });
+
+</script>

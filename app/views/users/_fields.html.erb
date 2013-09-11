@@ -1,0 +1,21 @@
+<%= render('shared/error_messages', :object => frm.object) %>
+
+<div class="field">
+  <%= frm.label(:name) %><br/>
+  <%= frm.text_field(:name) %>
+</div>
+
+<div class="field">
+  <%= frm.label(:email) %><br/>
+  <%= frm.text_field(:email) %>
+</div>
+
+<div class="field">
+  <%= frm.label(:password) %><br/>
+  <%= frm.password_field(:password) %>
+</div>
+
+<div class="field">
+  <%= frm.label(:password_confirmation, "Confirmation") %><br/>
+  <%= frm.password_field(:password_confirmation) %>
+</div>
